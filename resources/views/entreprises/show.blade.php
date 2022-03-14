@@ -62,36 +62,10 @@
 
 <main>
     <div class="container" style="margin-top: 80px">
-         <h2>Liste des entreprises</h2>
-         <div class="row">
-             <div class="col">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nom</th>
-                    <th scope="col">Siege</th>
-                      <th scope="col">NInéa</th>
-                        <th scope="col">Localité</th>
-                        <th scope="col">Détails</th>
-                    </tr>
-                  </thead>
-                    <tbody>
-                        @foreach ($entreprises as $entreprise)
-                        <tr>
-                          <th scope="row">{{ $entreprise->id }}</th>
-                          <td>{{ $entreprise->nom }}</td>
-                         <td>{{ $entreprise->siege }}</td>
-                          <td>{{ $entreprise->ninea }}</td>
-                        <td>{{ $entreprise->localite->nom }}</td>
-                            <td><a href="{{ route('entreprises.show',['id' => $entreprise->id]) }}">plus d'informations</a></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-             </div>
-         </div>
-     </div>
+        <h1>{{ $entreprise->nom }}</h1>
+          <h2>{{ $entreprise->localite->nom }}</h2>
+          <p> Siège Sociale : {{ $entreprise->siege }}</p>
+    </div>
 </main>
   </body>
 </html>

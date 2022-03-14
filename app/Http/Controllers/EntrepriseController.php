@@ -36,4 +36,12 @@ class EntrepriseController extends Controller
         Entreprise::create($inputsData);
         return redirect()->route('entreprises.index');
     }
+
+    public function show(int $id){
+        $entreprise = Entreprise::find($id);
+        return view('entreprises.show',[
+            'entreprise' => $entreprise
+        ]);
+
+    }
 }
