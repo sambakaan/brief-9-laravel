@@ -12,8 +12,12 @@ class Entreprise extends Model
     protected $casts = [
         'dispositifFormation' => 'boolean',
         'organigramme' => 'boolean',
-         'contrat' => 'boolean',
+        'contrat' => 'boolean',
     ];
 
     protected $guarded = ['id'];
+
+    public function localite() { //locailte_id
+        return $this->belongsTo(Quartier::class,'quartier_id');
+    }
 }

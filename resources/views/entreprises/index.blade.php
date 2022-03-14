@@ -72,6 +72,7 @@
                       <th scope="col">Nom</th>
                     <th scope="col">Siege</th>
                       <th scope="col">NInéa</th>
+                        <th scope="col">Localité</th>
                         <th scope="col">Détails</th>
                     </tr>
                   </thead>
@@ -82,6 +83,7 @@
                           <td>{{ $entreprise->nom }}</td>
                          <td>{{ $entreprise->siege }}</td>
                           <td>{{ $entreprise->ninea }}</td>
+                            <td>{{ $entreprise->localite->nom }}</td>
                             <td>plus d'informations</td>
                         </tr>
                         @endforeach

@@ -10,6 +10,8 @@ use Symfony\Component\Console\Input\Input;
 class EntrepriseController extends Controller
 {
 
+
+
     public function index () {
         return view('entreprises.index', [
             'entreprises' => Entreprise::all()
