@@ -10,6 +10,10 @@ use Symfony\Component\Console\Input\Input;
 class EntrepriseController extends Controller
 {
 
+    public function __construct() {
+        $this->middleware(['auth'])->only('create');
+    }
+
 
 
     public function index () {
@@ -26,6 +30,7 @@ class EntrepriseController extends Controller
     }
 
     public function store(Request $request) {
+
 
         //TODO: Refactoring cette partie de code
         $inputsData = $request->all();

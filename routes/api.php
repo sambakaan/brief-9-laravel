@@ -3,6 +3,7 @@
 use App\Models\Pays;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EntrepriseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/pays', function() {
     return Pays::all();
 });
+
+Route::apiResource('entreprises', EntrepriseController::class);
 

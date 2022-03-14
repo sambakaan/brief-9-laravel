@@ -21,18 +21,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pays', [PaysController::class, 'index']);
+    // Route::middleware(['auth'])->group(function () {
+    Route::get('/entreprises', [EntrepriseController::class,'index'])->name('entreprises.index');
+    Route::get('/entreprises/create', [EntrepriseController::class,'create'])->name('entreprises.create');
+    Route::post('/entreprises/store',[EntrepriseController::class,'store'])->name('entreprises.store');
+    Route::get('/entreprises/{entreprise}',[EntrepriseController::class,'show'])->name('entreprises.show');
+    Route::get('/pays', [PaysController::class, 'index']);
+// });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-/**
- * /entreprises/create -> formulaire d'ajout
-*entreprises/store -> traitement du formulaire d'ajout
-*entreprises/edit/{id} -> formulaire de modification
-*entreprises/update/{id} -> traitement du formulaire de modification
-*entreprises/destroy/{id} -> suppression
- */
-
-Route::get('/entreprises', [EntrepriseController::class,'index'])->name('entreprises.index');
-Route::get('/entreprises/create', [EntrepriseController::class,'create'])->name('entreprises.create');
-Route::post('/entreprises/store',[EntrepriseController::class,'store'])->name('entreprises.store');
-Route::get('/entreprises/{entreprise}',[EntrepriseController::class,'show'])->name('entreprises.show');
+require __DIR__.'/auth.php';
