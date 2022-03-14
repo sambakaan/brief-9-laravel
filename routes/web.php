@@ -32,5 +32,6 @@ Route::get('/pays', [PaysController::class, 'index']);
 *entreprises/destroy/{id} -> suppression
  */
 
-Route::get('/entreprises', [EntrepriseController::class,'index']);
-Route::get('/entreprises/create', [EntrepriseController::class,'create']);
+Route::get('/entreprises', [EntrepriseController::class,'index'])->name('entreprises.index');
+Route::get('/entreprises/create', [EntrepriseController::class,'create'])->name('entreprises.create');
+Route::post('/entreprises/store',[EntrepriseController::class,'store'])->name('entreprises.store');

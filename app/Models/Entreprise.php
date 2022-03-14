@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Entreprise extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'dispositifFormation' => 'boolean',
+        'organigramme' => 'boolean',
+         'contrat' => 'boolean',
+    ];
+
+    protected $guarded = ['id'];
 }

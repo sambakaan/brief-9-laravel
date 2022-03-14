@@ -66,47 +66,55 @@
     <div class="container " style="margin-top: 80px">
         <div class="row mt-5">
             <div class="col">
-                <form>
+                <form method="post" action="{{ route('entreprises.index') }}">
+                @csrf
                   <div class="mb-3">
                     <label for="nomEte" class="form-label">Nom Ete</label>
-                    <input type="text" class="form-control" id="nomEte" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="nomEte" name="nom" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-3">
                     <label for="siegeEte" class="form-label">Siège</label>
-                    <input type="text" class="form-control" id="siegeEte">
+                    <input type="text" class="form-control" name="siege" id="siegeEte">
                   </div>
                 <div class="mb-3">
                     <label for="telephoneEte" class="form-label">Télphone</label>
-                    <input type="text" class="form-control" id="telephoneEte">
+                    <input type="text" class="form-control" name="telephone" id="telephoneEte">
                   </div>
                 <div class="mb-3">
                     <label for="dateEte" class="form-label">Date de Création</label>
-                    <input type="date" class="form-control" id="dateEte">
+                    <input type="date" class="form-control" name="dateCreation" id="dateEte">
                   </div>
                 <div class="mb-3">
                     <label for="registreEte" class="form-label">Registre</label>
-                    <input type="text" class="form-control" id="registreEte">
+                    <input type="text" class="form-control"  name="registre" id="registreEte">
                   </div>
                  <div class="mb-3">
                     <label for="nineaEte" class="form-label">Ninea</label>
-                    <input type="text" class="form-control" id="nineaEte">
+                    <input type="text" class="form-control" name="ninea" id="nineaEte">
                   </div>
                 <div class="mb-3">
                     <label for="siteEte" class="form-label">Site Web</label>
-                    <input type="text" class="form-control" id="siteEte">
+                    <input type="text" class="form-control" name="siteWeb" id="siteEte">
                   </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="dispositif">
+                    <input type="checkbox"  name="dispositifFormation" class="form-check-input" id="dispositif">
                     <label class="form-check-label" for="dispositif">Avez-vous un Dispositif de formation ?</label>
                   </div>
                 <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="dispositif">
+                    <input type="checkbox" class="form-check-input" name="organigramme" id="organigramme">
                     <label class="form-check-label" for="dispositif">Avez-vous un organigramme ?</label>
                   </div>
                  <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="dispositif">
+                    <input type="checkbox" class="form-check-input" name="contrat" id="contrat">
                     <label class="form-check-label" for="dispositif">Avez-vous des contrats ?</label>
                   </div>
+
+                <select class="form-select" name="quartier_id" aria-label="list des régions">
+                  <option selected>Sélectionner la localité</option>
+                    @foreach ($quartiers as $quartier)
+                      <option value="{{ $quartier->id }}">{{ $quartier->nom }}</option>
+                    @endforeach
+                </select>
 
 
                   <button type="submit" class="btn btn-primary">Enregistrer</button>
@@ -116,8 +124,5 @@
     </div>
 
 </main>
-
-
-
   </body>
 </html>
