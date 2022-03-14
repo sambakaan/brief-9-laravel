@@ -14,7 +14,7 @@ class EntrepriseController extends Controller
 
     public function index () {
         return view('entreprises.index', [
-            'entreprises' => Entreprise::all()
+            'entreprises' => Entreprise::with('localite')->get()
         ]);
     }
 
