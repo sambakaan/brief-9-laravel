@@ -73,6 +73,7 @@
                     <th scope="col">Siege</th>
                       <th scope="col">NInéa</th>
                         <th scope="col">Localité</th>
+                        <th scope="col">Région</th>
                         <th scope="col">Détails</th>
                     </tr>
                   </thead>
@@ -84,7 +85,11 @@
                          <td>{{ $entreprise->siege }}</td>
                           <td>{{ $entreprise->ninea }}</td>
                         <td>{{ $entreprise->localite->nom }}</td>
-                            <td><a href="{{ route('entreprises.show',['id' => $entreprise->id]) }}">plus d'informations</a></td>
+                            <td>{{ $entreprise->localite->commune->departement->region->nom }}</td>
+                            <td>
+                                <a href="{{ route('entreprises.show',$entreprise) }}">plus d'informations</a>
+                            </td>
+
                         </tr>
                         @endforeach
                     </tbody>

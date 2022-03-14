@@ -10,7 +10,13 @@ class Quartier extends Model
 {
     use HasFactory;
 
+    protected $with = ['commune'];
+
     public function entreprises() {
         return $this->hasMany(Entreprise::class);
+    }
+
+    public function commune() {
+        return $this->belongsTo(Commune::class);
     }
 }

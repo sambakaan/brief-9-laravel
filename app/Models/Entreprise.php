@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Entreprise extends Model
 {
@@ -17,7 +18,7 @@ class Entreprise extends Model
 
     protected $guarded = ['id'];
 
-    public function localite() { //locailte_id
+    public function localite() : BelongsTo { //locailte_id
         return $this->belongsTo(Quartier::class,'quartier_id');
     }
 }

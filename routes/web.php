@@ -35,4 +35,4 @@ Route::get('/pays', [PaysController::class, 'index']);
 Route::get('/entreprises', [EntrepriseController::class,'index'])->name('entreprises.index');
 Route::get('/entreprises/create', [EntrepriseController::class,'create'])->name('entreprises.create');
 Route::post('/entreprises/store',[EntrepriseController::class,'store'])->name('entreprises.store');
-Route::get('/entreprises/{id}',[EntrepriseController::class,'show'])->name('entreprises.show');
+Route::get('/entreprises/{entreprise}',[EntrepriseController::class,'show'])->name('entreprises.show');

@@ -37,11 +37,8 @@ class EntrepriseController extends Controller
         return redirect()->route('entreprises.index');
     }
 
-    public function show(int $id){
-        $entreprise = Entreprise::find($id);
-        return view('entreprises.show',[
-            'entreprise' => $entreprise
-        ]);
+    public function show(Entreprise  $entreprise){
+        return view('entreprises.show',['entreprise' => $entreprise]);
 
     }
 }
