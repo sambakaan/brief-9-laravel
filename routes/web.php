@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\PaysController;
+use App\Models\Entreprise;
 use App\Models\Pays;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +22,15 @@ Route::get('/', function () {
 });
 
 Route::get('/pays', [PaysController::class, 'index']);
+
+
+/**
+ * /entreprises/create -> formulaire d'ajout
+*entreprises/store -> traitement du formulaire d'ajout
+*entreprises/edit/{id} -> formulaire de modification
+*entreprises/update/{id} -> traitement du formulaire de modification
+*entreprises/destroy/{id} -> suppression
+ */
+
+Route::get('/entreprises', [EntrepriseController::class,'index']);
+Route::get('/entreprises/create', [EntrepriseController::class,'create']);

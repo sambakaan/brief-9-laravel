@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('entreprises', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('siege');
+            $table->integer('telephone')->unique();
+            $table->date('dateCreation');
+            $table->string('registre',20)->unique();
+            $table->string('ninea',15)->unique();
+            $table->string('siteWeb')->nullable()->unique();
+            $table->boolean('dispositifFormation')->default(false);
+            $table->boolean('organigramme')->default(false);
+            $table->boolean('contrat')->default(false);
+            $table->unsignedBigInteger('quartier_id');
+            $table->foreign('quartier_id')->references('id')->on('quartiers');
             $table->timestamps();
         });
     }
